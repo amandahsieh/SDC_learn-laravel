@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +27,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::resource('user-manager', UserController::class)->names([
+        'index' => 'user-manager.index'
+    ]);
 });
